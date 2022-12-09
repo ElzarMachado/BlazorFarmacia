@@ -27,7 +27,7 @@ namespace BlazorFarmacia.Server.Model.Entities
 
         public List<Clientes> Clientes { get; set; }
         public List<Empleados> Empleados { get; set; } 
-        public List<ProductosLotes> productosLotes { get; set; }
+        public List<ProductosLotes> ProductosLotes { get; set; }
 
 
 
