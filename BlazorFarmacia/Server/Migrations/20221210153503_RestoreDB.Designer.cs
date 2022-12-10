@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlazorFarmacia.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221209041726_ProductosLotes")]
-    partial class ProductosLotes
+    [Migration("20221210153503_RestoreDB")]
+    partial class RestoreDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
