@@ -1,7 +1,4 @@
-﻿using BlazorFarmacy.Server.Model.Entities;
-using BlazorFarmacy.Server.Model;
-using BlazorFarmacy.Shared.DTOs.Empleados;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BlazorFarmacia.Server.Model;
 using BlazorFarmacia.Shared.DTOS.Ventas;
