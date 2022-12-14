@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BlazorFarmacia.Server.Model;
-using BlazorFarmacia.Shared.DTOS.Ventas;
+using BlazorFarmacia.Server.DTOs.Ventas;
 
 namespace BlazorFarmacia.Server.Controllers
 {
@@ -38,10 +38,13 @@ namespace BlazorFarmacia.Server.Controllers
                 };
 
 
-                VentasDto.Add(VentaDto);
+                VentasDTO.Add(VentaDto);
             }
             return VentaDto;
         }
+
+
+
 
 
         /////////////////////////////////////////////////////////////////////
