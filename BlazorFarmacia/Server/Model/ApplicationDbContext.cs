@@ -1,9 +1,7 @@
-﻿
-using BlazorFarmacia.Server.Model;
-using BlazorFarmacia.Server.Model.Entities;
+﻿using BlazorFarmacia.Server.Model.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace BlazorContactos.Server.Model
+namespace BlazorFarmacia.Server.Model
 {
     public class ApplicationDbContext : DbContext
     {
@@ -14,7 +12,7 @@ namespace BlazorContactos.Server.Model
 
         }
 
-        public DbSet<Clientes> Cliente { get; set; }
+        public DbSet<Clientes> Clientes { get; set; }
 
         public DbSet<Empleados> Empleados { get; set; }
         public DbSet<Lotes> Lotes { get; set; }

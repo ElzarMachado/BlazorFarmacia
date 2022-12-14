@@ -1,4 +1,4 @@
-using BlazorContactos.Server.Model;
+using BlazorFarmacia.Server.Model;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 

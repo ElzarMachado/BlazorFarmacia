@@ -4,7 +4,7 @@
 
 namespace BlazorFarmacia.Server.Migrations
 {
-    public partial class RestoreDB : Migration
+    public partial class RestoredMigrations : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

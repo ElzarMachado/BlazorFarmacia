@@ -1,21 +1,22 @@
-﻿@page "/Cliente"
-@page "/Cliente/{id:int}"
+﻿@page "/cliente"
+@page "/cliente/{id:int}"
 
-@using BlazorFarmacia.Shared.DTOS.Clientes;
+@using BlazorFarmacia.Shared.DTOS.Ventas
 
 @inject HttpClient httpClient
 @inject NavigationManager navigationManager
 
-<h3>Alumno</h3>
+<h3>Cliente</h3>
 
-<EditForm Model="Cliente" OnValidSubmit="OnValidSubmit">
+
+<EditForm Model="cliente" OnValidSubmit="OnValidSubmit">
     <DataAnnotationsValidator />
 
-     <div class="col-lg-12">
+    <div class="col-lg-12">
         <div class="mb-3">
-           <label class="form-label">Nombre</label>
-            <InputText id="Nombre" class="form-control" @bind-Value="@Cliente.Nombre" />
-            <ValidationMessage For="@(() => Cliente.Nombre)" />
+            <label class="form-label">Nombre</label>
+            <InputText id="Nombre" class="form-control" @bind-Value="@cliente.Nombre" />
+            <ValidationMessage For="@(() => cliente.Nombre)" />
         </div>
     </div>
 
@@ -24,7 +25,7 @@
         <button type="button" class="btn btn-danger" onclick="history.back()">Cancelar</button>
         <button type="submit" class="btn btn-success">Guardar</button>
     </div>
-
+   
 </EditForm>
 
 
@@ -36,10 +37,10 @@
     {
         if (id > 0)
         {
-            var response = await httpClient.GetFromJsonAsync<ClienteDTO>($"api/alumnoz/{id}");
+            var response = await httpClient.GetFromJsonAsync<ClienteDTO>($"api/Clientes/{id}");
             if (response != null)
             {
-                Cliente = response;
+                cliente = response;
             }
         }
     }
@@ -48,15 +49,14 @@
     {
         if (id > 0)
         {
-            await httpClient.PutAsJsonAsync<ClienteDTO>("api/alumnoz", Cliente);
+            await httpClient.PutAsJsonAsync<ClienteDTO>("api/Clientes", cliente);
         }
         else
         {
-            await httpClient.PostAsJsonAsync<ClienteDTO>("api/alumnoz", Cliente);
+            await httpClient.PostAsJsonAsync<ClienteDTO>("api/Clientes", cliente);
         }
 
         navigationManager.NavigateTo("clientes");
     }
+
 }
-Footer
-© 2022 GitHub

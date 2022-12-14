@@ -1,6 +1,47 @@
-﻿namespace BlazorFarmacia.Server.Controllers
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using BlazorFarmacia.Server.Model;
+using BlazorFarmacia.Shared.DTOS.Ventas;
+
+namespace BlazorFarmacia.Server.Controllers
 {
-    public class VentasController
+    [ApiController, Route("api/ventas")]
+
+    public class VentasController : ControllerBase
     {
-    }
-}
+        private readonly ApplicationDbContext context;
+
+        public VentasController(ApplicationDbContext context)
+        {
+            this.context = context;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<List<VentaDTO>>> GetVentas()
+        {
+            var ventas = await context.Ventas.ToListAsync();
+
+            var VentaDto = new List<VentaDTO>();
+
+            foreach (var venta in ventas)
+            {
+                var VentaDto = new VentaDTO
+                {
+                    Id = venta.Id,
+                    Fecha = venta.Fecha,
+                    IdCliente = venta.IdCliente,
+                    TotalVenta = venta.TotalVenta,
+                    Folio = venta.Folio,
+                    IdEmpleado = venta.IdEmpleado
+
+
+                };
+
+
+                VentasDto.Add(VentaDto);
+            }
+            return VentaDto;
+        }
+
+
+        /////////////////////////////////////////////////////////////////////

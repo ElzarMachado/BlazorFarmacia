@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlazorFarmacia.Shared.DTOS.Clientes
+namespace BlazorFarmacia.Shared.DTOS.Ventas
 {
     public class ClienteDTO
     {

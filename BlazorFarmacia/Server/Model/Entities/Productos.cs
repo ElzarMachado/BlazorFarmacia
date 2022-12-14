@@ -15,8 +15,6 @@ namespace BlazorFarmacia.Server.Model.Entities
 
         public string Fila { get; set; }
 
-        public int PuntosCompra { get; set; }
-
 
         public int ProductosLotesId { get; set; }
         public ProductosLotes? ProductosLotes { get; set; }

@@ -1,5 +1,5 @@
 ﻿@page "/clientes"
-@using BlazorFarmacia.Shared.DTOS.Clientes;
+@using BlazorFarmacia.Shared.DTOS.Ventas;
 
 @inject HttpClient httpClient
 @inject NavigationManager navigationManager
@@ -54,7 +54,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        var response = await httpClient.GetFromJsonAsync<List<ClienteDTO>>("api/clientez");
+        var response = await httpClient.GetFromJsonAsync<List<ClienteDTO>>("api/Clientes");
         if (response != null)
         {
             clientes = response;
