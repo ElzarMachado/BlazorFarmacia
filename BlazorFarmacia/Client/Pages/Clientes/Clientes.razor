@@ -1,0 +1,71 @@
+﻿@page "/clientes"
+@using BlazorFarmacia.Shared.DTOS.Clientes;
+
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+
+<h3>Clientes</h3>
+
+<div class="row justify-content-end">
+    <div class="col-lg-3 text-end">
+        <button type="button" class="btn btn-success" @onclick=@(() => navigationManager.NavigateTo("cliente"))>Agregar</button>
+    </div>
+</div>
+
+@if (clientes == null)
+{
+    <h1>Cargando...</h1>
+}
+else if (clientes.Count == 0)
+{
+    <h1>No se encontraron clientes registrados...</h1>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table text-center table-hover">
+            <thead class="table-striped">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var cliente in clientes)
+                {
+                    <tr>
+                        <td>@cliente.Id</td>
+                        <td>@cliente.Nombre</td>
+
+                        <td>
+                            <button class="btn btn-primary" type="button" @onclick=@(() => navigationManager.NavigateTo($"cliente/{cliente.Id}"))>Editar</button>
+                            <button class="btn btn-danger" type="button" @onclick="@(() => Eliminar(cliente))">Eliminar</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+@code {
+    protected List<ClienteDTO> clientes;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await httpClient.GetFromJsonAsync<List<ClienteDTO>>("api/clientez");
+        if (response != null)
+        {
+            clientes = response;
+        }
+    }
+
+    protected async Task Eliminar(ClienteDTO Cliente)
+    {
+        await httpClient.DeleteAsync($"api/clientez/{Cliente.Id}");
+        clientes.Remove(Cliente);
+    }
+}
+
+

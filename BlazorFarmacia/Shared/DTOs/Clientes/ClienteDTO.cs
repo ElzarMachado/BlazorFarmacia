@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BlazorFarmacia.Shared.DTOS.Clientes
 {
-    public class ClienteDto
+    public class ClienteDTO
     {
         public int Id { get; set; }
 
