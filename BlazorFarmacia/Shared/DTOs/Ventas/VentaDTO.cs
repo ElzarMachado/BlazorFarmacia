@@ -21,10 +21,6 @@ namespace BlazorFarmacia.Server.Model.Entities
         [Required(ErrorMessage = "El campo {0} es requerido.")]
         public int IdEmpleado { get; set; }
 
-        [Required(ErrorMessage = "El campo {0} es requerido.")]
-        public int IdProductosLotes { get; set; }
-
-        [Required(ErrorMessage = "El campo {0} es requerido.")]
         public int Importe { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es requerido.")]
