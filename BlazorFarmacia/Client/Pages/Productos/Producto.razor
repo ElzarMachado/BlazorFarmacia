@@ -1,5 +1,4 @@
-﻿ines (53 sloc)  1.77 KB
-
+﻿
 @page "/producto"
 @page "/producto/{id:int}"
 @using BlazorFarmacia.Shared.DTOS.Productos
@@ -29,14 +28,14 @@
 </EditForm>
 
 @code {
-    protected ProductoDto producto = new ProductoDto();
+    protected ProductoDto producto = new ProductoDTO();
     [Parameter] public int id { get; set; } = 0;
 
     protected override async Task OnInitializedAsync()
     {
         if (id > 0)
         {
-            var response = await httpClient.GetFromJsonAsync<ProductoDto>($"api/Productos/{id}");
+            var response = await httpClient.GetFromJsonAsync<ProductoDTO>($"api/Productos/{id}");
             if (response != null)
             {
                 producto = response;
@@ -48,11 +47,11 @@
     {
         if (id > 0)
         {
-            await httpClient.PutAsJsonAsync<ProductoDto>("api/Productos", producto);
+            await httpClient.PutAsJsonAsync<ProductoDTO>("api/Productos", producto);
         }
         else
         {
-            await httpClient.PostAsJsonAsync<ProductoDto>("api/Productos", producto);
+            await httpClient.PostAsJsonAsync<ProductoDTO>("api/Productos", producto);
         }
 
         navigationManager.NavigateTo("productos");
