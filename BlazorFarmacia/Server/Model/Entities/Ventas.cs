@@ -18,8 +18,6 @@ namespace BlazorFarmacia.Server.Model.Entities
         [Required]
         public int IdEmpleado { get; set; }
         [Required]
-        public int IdProductosLotes { get; set; }
-        [Required]
         public int Importe { get; set; }
         [Required]
         public int ValorUnitario { get; set; }
@@ -27,7 +25,7 @@ namespace BlazorFarmacia.Server.Model.Entities
 
         public List<Clientes> Clientes { get; set; }
         public List<Empleados> Empleados { get; set; } 
-        public List<ProductosLotes> ProductosLotes { get; set; }
+        public List<Productos> Productos { get; set; }
 
 
 
