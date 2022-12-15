@@ -14,8 +14,8 @@ namespace BlazorFarmacia.Server.Model.Entities
         public int Pasillo { get; set; }
         [Required(ErrorMessage = "El campo {0} es requerido.")]
         public string Fila { get; set; }
-        [Required(ErrorMessage = "El campo {0} es requerido.")]
-        public int PuntosCompra { get; set; }
+        
+        
 
     }
 }
